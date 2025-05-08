@@ -1,0 +1,87 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-20">
+
+            <div class="card">
+
+                <div class="card-header">Edit Artikel</div>
+
+
+
+                <div class="card-body">
+
+
+
+                    <form action="{{ route('artikel.update', $artikel->id) }}" method="POST" enctype="multipart/form-data">
+
+                    @method('put')
+
+                    @csrf
+
+                    <div class="mb-3">
+
+                        <label>Judul Artikel</label>
+
+                        <input type="text" class="form-control" @error('judul') is-invalid @enderror
+
+                        name="judul" value="{{$artikel->judul}}">
+
+                        @error('judul')
+
+                            <div class="invalid-fedback">{{$message}}</div>
+
+                        @enderror
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label>Konten</label><br>
+
+                        <input type="text" class="form-control" @error('konten') is-invalid @enderror
+
+                        name="konten" value="{{$artikel->konten}}">
+
+                        @error('konten')
+
+                            <div class="invalid-fedback">{{$message}}</div>
+
+                        @enderror
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label>Foto</label>
+
+                       <div class="mb-2">
+
+                            <img src="{{ Storage::url($artikel->foto) }}" alt="Foto Artikel" class="img-thumbnail"
+
+                            width="150">
+
+                       </div>
+
+                       <input type="file" class="form-control" @error('foto') is-invalid @enderror
+
+                        name="foto" value="{{$artikel->foto}}">
+
+                        @error('foto')
+
+                            <div class="invalid-fedback">{{$message}}</div>
+
+                        @enderror
+
+                    <div class="mb-3">
+
+                        <button type="submit" class="btn btn-success">Simpan</button>
+
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

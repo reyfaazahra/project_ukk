@@ -1,0 +1,21 @@
+@extends('layouts.app')
+@section('content')
+    <div class="row justitfy-content-center">
+        <div class="col-md-20">
+            <div class="card">
+                <div class="card-header">
+
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Nama Kategori</th>
+                            <td>{{ $kategori->nama_kategori }}</td>
+                        </tr>
+                    </table>
+                    <a href="{{ route('kategori.index') }}" class="btn btn-secondary">Kembali</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
