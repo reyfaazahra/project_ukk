@@ -6,14 +6,6 @@
             <ul id="sidebarnav">
                 <!-- User Profile-->
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{ route('home') }}" aria-expanded="false">
-                        <span>
-                            <i class="bi bi-house-door-fill"></i>
-                        </span>
-                        <span class="hide-menu">Dashboard</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('kategori.index') }}" aria-expanded="false">
                         <span>
                             <i class="bi bi-table"></i>

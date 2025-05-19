@@ -25,6 +25,13 @@ class ArtikelController extends Controller
 
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'judul' => 'required|unique:artikels',
+            'konten' => 'required',
+            'id_kategori' => 'required',
+            'foto' => 'nullable|mimes:jpg,png,jpeg,webp,avif|max:9999',
+        ]);
+
         $artikel = new Artikel();
         $artikel->judul = $request->judul;
         $artikel->konten = $request->konten;
@@ -51,7 +58,8 @@ class ArtikelController extends Controller
     public function edit($id)
     {
         $artikel = Artikel::findOrFail($id);
-        return view('artikel.edit', compact('artikel'));
+        $kategori = Kategori::all();
+        return view('artikel.edit', compact('artikel', 'kategori'));
     }
 
     public function update(Request $request, $id)
@@ -59,7 +67,7 @@ class ArtikelController extends Controller
         $validated = $request->validate([
             'judul' => 'required',
             'konten' => 'required',
-            'kategori' => 'required',
+            'id_kategori' => 'required',
             'foto' => 'nullable|mimes:jpg,png,jpeg,webp,avif|max:9999',
         ]);
 
@@ -75,7 +83,6 @@ class ArtikelController extends Controller
             $img->move(public_path('storage/artikel'), $name);
             $artikel->foto = $name;
         }
-
         $artikel->save();
         session()->flash('success', 'Data berhasil di update');
         return redirect()->route('artikel.index');

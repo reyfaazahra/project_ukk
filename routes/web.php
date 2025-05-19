@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ArtikelController;
-
-
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\KategoriController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +14,21 @@ use App\Http\Controllers\ArtikelController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('kategori', KategoriController::class);
+// frontend
 
-Route::resource('artikel', ArtikelController::class);
+Route::get('/artikel', [FrontController::class, 'artikel']);
+
+Route::prefix('admin')->group(function () {
+    Route::resource('kategori', KategoriController::class);
+    Route::resource('artikel', ArtikelController::class);
+
+});
