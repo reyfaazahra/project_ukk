@@ -27,6 +27,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/artikel', [FrontController::class, 'artikel']);
 
+Route::get('/artikel/{id}', [FrontController::class, 'view'])->name('detail.single');
+
 Route::prefix('admin')->group(function () {
     Route::resource('kategori', KategoriController::class);
     Route::resource('artikel', ArtikelController::class);

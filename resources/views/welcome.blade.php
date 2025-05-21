@@ -7,21 +7,24 @@
                     <article class="featured-post">
                         <div class="featured-post-content">
                             <div class="featured-post-author">
-                                <img src="{{asset('frontend/images/author.png')}}" alt="author" />
-                                <p>By <span>Mary Astor</span></p>
+                                <img src="{{ asset('frontend/images/foto/pp.jpg') }}" alt=""
+                                    style="width: 130px; height: auto;" />
+                                <p>By <span>Reyfa Azahra</span></p>
                             </div>
                             <a href="single-blog.html" class="featured-post-title">
-                                Every Next Level of Your Life Will Demand
+                                🍜 Temuin Makanan yang Cocok Sama Vibes Kamu Hari Ini
                             </a>
                             <ul class="featured-post-meta">
                                 <li>
                                     <i class="fa fa-clock-o"></i>
-                                    October 19, 2020 - 3 min read
+                                    Mei 19, 2025 - 3 min read
                                 </li>
                             </ul>
                         </div>
                         <div class="featured-post-thumb">
-                            <img src="{{asset('frontend/images/featured-post.jpg')}}" alt="feature-post-thumb" />
+                            <img src="{{ asset('frontend/images/foto/sampul.jpg') }}" alt="feature-post-thumb"
+                                style="width: 500px; height: auto; display: block; margin: 0 auto;" />
+
                         </div>
                     </article>
                 </div>
